@@ -1,5 +1,5 @@
 #EmotionDetect body {
-  margin: 0;
+  margin-top: 50px;
   padding: 0;
   width: 100vw;
   height: 100vh;
@@ -12,7 +12,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #ebf7f7;
+  background-color: white;
 }
 
 #EmotionDetect canvas {
@@ -21,4 +21,12 @@
 
 #EmotionDetect video {
   border-radius: 100px;
+}
+
+#corner-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px; /* Adjust as necessary */
+  height: auto;
 }
