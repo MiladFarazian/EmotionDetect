@@ -1,10 +1,12 @@
 const video = document.getElementById("video");
 
+const basePath = window.location.pathname.includes('EmotionDetect') ? '/EmotionDetect/models' : '/models';
+
 Promise.all([
-  faceapi.nets.tinyFaceDetector.loadFromUri("/EmotionDetect/models"),
-  faceapi.nets.faceLandmark68Net.loadFromUri("/EmotionDetect/models"),
-  faceapi.nets.faceRecognitionNet.loadFromUri("/EmotionDetect/models"),
-  faceapi.nets.faceExpressionNet.loadFromUri("/EmotionDetect/models"),
+  faceapi.nets.tinyFaceDetector.loadFromUri(basePath),
+  faceapi.nets.faceLandmark68Net.loadFromUri(basePath),
+  faceapi.nets.faceRecognitionNet.loadFromUri(basePath),
+  faceapi.nets.faceExpressionNet.loadFromUri(basePath),
 ]).then(startVideo);
 
 function startVideo() {
