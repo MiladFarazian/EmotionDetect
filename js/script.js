@@ -10,11 +10,19 @@ Promise.all([
 ]).then(startVideo);
 
 function startVideo() {
-  navigator.getUserMedia(
-    { video: {} },
-    (stream) => (video.srcObject = stream),
-    (err) => console.error(err)
-  );
+  const video = document.getElementById('video');
+  const loadingGif = document.getElementById('loading');
+
+  // Start video stream
+  navigator.mediaDevices.getUserMedia({ video: {} }).then(stream => {
+    video.srcObject = stream;
+
+    // Hide loading GIF and show video when data starts loading
+    video.addEventListener('loadeddata', () => {
+      loadingGif.style.display = 'none';  // Hide loading GIF
+      video.style.display = 'block';      // Show the video
+    });
+  });
 }
 
 video.addEventListener("play", () => {
